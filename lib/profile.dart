@@ -5,48 +5,33 @@ class ProfileCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Kenzie Javas'),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.redAccent,
+        title: const Text(
+          'My Profile',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        /**
-         * Row & Column bisa memiliki banyak widget
-         * Row => itu kesamping
-         * Column => itu ke bawah
-         */
-        body: Column(
-          children: <Widget>[
-            SizedBox(
-              width: 200,
-              child: Container(
-                child: Text(
-                  'NAMA',
-                  style: TextStyle(
-                    color: Colors.amber,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                    backgroundColor: Colors.redAccent,
-                    fontFamily: 'poppins'
-                  ),
-                ),
-              ),
-            ),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
             Text(
-              'Kenzie Javas', 
-            style: TextStyle(
-               backgroundColor: Color.fromARGB(
-              200,
-              100, 
-              100, 
-              100,
+              'Kenzie Javas',
+              style: TextStyle(fontSize: 20.0, 
+              fontWeight: FontWeight.bold,
               ),
             ),
+            Row(
+              children: <Widget>[
+                Column(),
+                Column(),
+              ],
             ),
           ],
         ),
       ),
-      debugShowCheckedModeBanner: false,
     );
   }
 }
