@@ -17,18 +17,55 @@ class ProfileCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Kenzie Javas',
-              style: TextStyle(fontSize: 20.0, 
-              fontWeight: FontWeight.bold,
+            Container(
+              width: MediaQuery.of(context).size.width * 0.8,
+              height: 300,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.amber,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.redAccent,
+                    spreadRadius: 5.0,
+                    blurRadius: 7.0,
+                    offset: Offset(0, 3),
+                  ),
+                ],
+              ),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20, 
+                      vertical: 50,
+                    ),
+                    /**
+                     * belajar container pedding dan sizedbox
+                     * only => hanya memberi satu posisi
+                     * symmetric => memberi jarak sumbu x atau sumbu y
+                     * all => memberi semua jarak
+                     */
+                    child: Text(
+                      'NAME',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    'Kenzie Javas',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
             ),
-            Row(
-              children: <Widget>[
-                Column(),
-                Column(),
-              ],
-            ),
+            Column(children: <Widget>[]),
+            Column(children: <Widget>[]),
           ],
         ),
       ),
