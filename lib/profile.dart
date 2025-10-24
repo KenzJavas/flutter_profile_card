@@ -61,13 +61,21 @@ class ProfileCard extends StatelessWidget {
                     ),
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    /**
+                     * Start => kiri
+                     * center => tengah
+                     * End => kanan
+                     * spaceBetween => ke pojok dari bagian
+                     * spaceAround => ke tengah dari bagian
+                     * spaceAvenly => ke tengah hampir mirip spaceAround
+                     */
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
                           children: <Widget>[
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.5,
+                            Container( 
                               decoration: BoxDecoration(
                                 color: Colors.redAccent,
                                 borderRadius: BorderRadius.circular(15),
@@ -80,7 +88,23 @@ class ProfileCard extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Column(),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.redAccent,
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Tempat Tanggal Lahir'),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ],
