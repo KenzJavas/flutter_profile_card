@@ -3,6 +3,27 @@ import 'package:flutter/material.dart';
 class AboutMe extends StatelessWidget {
   const AboutMe({super.key});
 
+  final List<String> badgeList = const <String>[
+    '🤫',
+    '🧑‍💻',
+    '🧑‍💼',
+    '🧑‍🎓',
+    '🧑‍🏫',
+    '⚽',
+    '🥇',
+    '🎮',
+    '♠️',
+    '🎶',
+  ];
+
+  final List<String> urlList = const <String>[
+    'https://upload.wikimedia.org/wikipedia/commons/c/c6/Dart_logo.png', //Dart
+    'https://images.icon-icons.com/2699/PNG/512/python_logo_icon_168886.png', //Python
+    'https://images.seeklogo.com/logo-png/30/2/java-script-js-logo-png_seeklogo-303341.png', //JavaScript
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flutter_logo.svg/2048px-Flutter_logo.svg.png', //Flutter
+    ''  // C++
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,90 +67,284 @@ class AboutMe extends StatelessWidget {
                 ),
                 //spacer
                 SizedBox(height: 20),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.amberAccent,
-                    borderRadius: BorderRadius.circular(15),
-                    border: Border.all(color: Colors.orangeAccent, width: 1.5),
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 5,
-                        offset: Offset(0.3, 0.7),
-                        color: Colors.orangeAccent,
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          color: Colors.orangeAccent,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Icon(Icons.android, color: Colors.white, size: 50),
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              children: [
-                                Text(
-                                  'Android Project\'s',
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                                Text('10 Apk'),
-                              ],
+
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.amberAccent,
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(
+                              color: Colors.orangeAccent,
+                              width: 1.5,
                             ),
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 5,
+                                offset: Offset(0.3, 0.7),
+                                color: Colors.orangeAccent,
+                              ),
+                            ],
                           ),
-                        ],
+                          child: Row(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.orangeAccent,
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                width: 100,
+                                height: 100,
+                                child: Icon(
+                                  Icons.gamepad,
+                                  size: 70,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Game Projects',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        Text('10 Game'),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
-                    ],
-                  ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.amberAccent,
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(
+                              color: Colors.orangeAccent,
+                              width: 1.5,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 5,
+                                offset: Offset(0.3, 0.7),
+                                color: Colors.orangeAccent,
+                              ),
+                            ],
+                          ),
+                          child: Row(
+                            children: [
+                              Container(
+                                width: 100,
+                                height: 100,
+                                decoration: BoxDecoration(
+                                  color: Colors.orangeAccent,
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                child: Icon(
+                                  Icons.android,
+                                  color: Colors.white,
+                                  size: 70,
+                                ),
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Android Project\'s',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        Text('10 Apk'),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10),
-                  child: Text(
-                    'Schedule'.toUpperCase(),
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      letterSpacing: 2,
+                  child: Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.amberAccent,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Schedule'.toUpperCase(),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Colors.white,
+                            letterSpacing: 2,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    Column(
-                      children: <Widget>[
-                        Text(
-                          'Belajar',
-                          style: TextStyle(fontWeight: FontWeight.w700),
-                        ),
-                        Icon(Icons.timer, size: 30),
-                        Text('07.30 - 14.30')
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Text(
-                          'Membaca',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w700,
+                    Expanded(
+                      flex: 1,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.orangeAccent,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: <Widget>[
+                                Text(
+                                  'Belajar',
+                                  style: TextStyle(fontWeight: FontWeight.w700),
+                                ),
+                                Icon(Icons.timer, size: 30),
+                                Text('07.30 - 14.30'),
+                              ],
+                            ),
                           ),
                         ),
-                        Icon(
-                          Icons.book,
-                          size: 30,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.orangeAccent,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: <Widget>[
+                                Text(
+                                  'Membaca',
+                                  style: TextStyle(fontWeight: FontWeight.w700),
+                                ),
+                                Icon(Icons.book, size: 30),
+                                Text('20.00 - 21.00'),
+                              ],
+                            ),
+                          ),
                         ),
-                        Text('20.00 - 21.00',),
-                      ],
+                      ),
+                    ),
+                    /**
+                     * Tidur
+                    */
+                    Expanded(
+                      flex: 2,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.orangeAccent,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: <Widget>[
+                                Text(
+                                  'Tidur',
+                                  style: TextStyle(fontWeight: FontWeight.w700),
+                                ),
+                                Icon(Icons.timer, size: 30),
+                                Text('21.30 - 03.15'),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   ],
+                ),
+                SizedBox(height: 10),
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.amberAccent,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Text(
+                      'BADGES',
+                      style: TextStyle(
+                        letterSpacing: 5,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 110,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: badgeList.map((e) {
+                      return Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Container(
+                          width: 100,
+                          height: 100,
+                          decoration: BoxDecoration(color: Colors.orangeAccent),
+                          child: Center(
+                            child: Text(
+                              '${e}', 
+                              style: TextStyle(
+                              fontSize: 60,
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    }).toList(),
+                  ),
                 ),
               ],
             ),
