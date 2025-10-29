@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class AboutMe extends StatelessWidget {
   const AboutMe({super.key});
@@ -18,11 +19,17 @@ class AboutMe extends StatelessWidget {
 
   final List<String> urlList = const <String>[
     'https://upload.wikimedia.org/wikipedia/commons/c/c6/Dart_logo.png', //Dart
-    'https://images.icon-icons.com/2699/PNG/512/python_logo_icon_168886.png', //Python
-    'https://images.seeklogo.com/logo-png/30/2/java-script-js-logo-png_seeklogo-303341.png', //JavaScript
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Python.svg/1200px-Python.svg.png', //Python
+    'https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png', //JavaScript
     'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flutter_logo.svg/2048px-Flutter_logo.svg.png', //Flutter
-    ''  // C++
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png', // C++
+    'https://juststickers.in/wp-content/uploads/2019/07/kotlin.png', //Kotlin
+    'https://static.vecteezy.com/system/resources/previews/060/194/947/non_2x/php-programming-language-3d-icon-transparent-background-free-png.png', //Php
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/500px-HTML5_logo_and_wordmark.svg.png', //HTML
+    'https://cdn-icons-png.flaticon.com/512/919/919826.png', //CSS
+    'https://www.ibm.com/content/dam/adobe-cms/instana/media_logo/Azure-SQL-Server-Monitoring.png/_jcr_content/renditions/cq5dam.web.1280.1280.png', //SQL
   ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -334,16 +341,73 @@ class AboutMe extends StatelessWidget {
                           height: 100,
                           decoration: BoxDecoration(color: Colors.orangeAccent),
                           child: Center(
-                            child: Text(
-                              '${e}', 
-                              style: TextStyle(
-                              fontSize: 60,
-                              ),
+                            child: Text('${e}', style: TextStyle(fontSize: 60)),
+                          ),
+                        ),
+                      );
+                    }).toList(),
+                  ),
+                ),
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.amberAccent,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'PROGRAMING',
+                      style: TextStyle(
+                        letterSpacing: 5,
+                        fontSize: 18,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 110,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: urlList.map((element) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.orangeAccent,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Image.network(
+                              '${element}',
+                              width: 80,
+                              height: 80,
+                              fit: BoxFit.cover,
                             ),
                           ),
                         ),
                       );
                     }).toList(),
+                  ),
+                ),
+                SizedBox(
+                  height: 110,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: urlList.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: CircleAvatar(
+                          backgroundImage: NetworkImage('${urlList[index]}'),
+                          radius: 50,
+                        ),
+                      );
+                    },
                   ),
                 ),
               ],
