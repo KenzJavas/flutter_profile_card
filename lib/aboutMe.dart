@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_application_1/Detail_Profile.dart';
 
 class AboutMe extends StatelessWidget {
   const AboutMe({super.key});
@@ -30,6 +31,18 @@ class AboutMe extends StatelessWidget {
     'https://www.ibm.com/content/dam/adobe-cms/instana/media_logo/Azure-SQL-Server-Monitoring.png/_jcr_content/renditions/cq5dam.web.1280.1280.png', //SQL
   ];
 
+  final List<String> image = const <String>[
+    'https://play-lh.googleusercontent.com/oMCaFu3rpx2r1kWwwg2c3onakLO9_A6gE5ncYf7X7wwyfkM06SvVc-a2YeD0-5kRjR6nnIv0Uvfa7Dcj_Hd2', //KAI
+    'https://yt3.googleusercontent.com/m6n-XR5esmAezvZ-FNmwN4HYt4z2g07iTZ-zqEmkEIPuOF_xFYCazXBTQJAFJL1Zgpne1IZ65A=s900-c-k-c0x00ffffff-no-rj', //Shoope
+    'https://lelogama.go-jek.com/cms_editor/2021/05/28/info-gojek-2.png', //Gojek
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbvpVqH0G8VuV1vTIwMu_XyGUrKHzisQ0KWA&s', //BCA
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5PMhK3r61i1CBpjwnj_nWgdVI0kI4DR7a4w&s', //Samsung
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSTLNyHEp8ERADDJDy5wXQLoV_Lj0YTmv6eA&s', //Google
+    '', //Pertamina
+    '', //Amazon
+  ];
+
+  final title = 'Kenz Javas';
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +67,7 @@ class AboutMe extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 10.0),
                   child: Text(
-                    '[ Kenzie Javas ]',
+                    title.toUpperCase(),
                     style: TextStyle(
                       height: 1,
                       backgroundColor: Colors.amberAccent,
@@ -201,6 +214,50 @@ class AboutMe extends StatelessWidget {
                     ),
                   ],
                 ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DetailProfile()),
+                    );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.amberAccent,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'DETAIL PROFILE',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailProfile(title: title,),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.orangeAccent,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text('Detail Profile'.toUpperCase()),
+                    ),
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: Container(
@@ -212,13 +269,16 @@ class AboutMe extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          'Schedule'.toUpperCase(),
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                            color: Colors.white,
-                            letterSpacing: 2,
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            'Schedule'.toUpperCase(),
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              color: Colors.white,
+                              letterSpacing: 2,
+                            ),
                           ),
                         ),
                       ],
@@ -394,8 +454,28 @@ class AboutMe extends StatelessWidget {
                     }).toList(),
                   ),
                 ),
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.amberAccent,
+                    borderRadius: BorderRadius.circular(10)
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'Experiance',
+                      style: TextStyle(
+                        letterSpacing: 5,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
                 SizedBox(
-                  height: 110,
+                  height: 200,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: urlList.length,
@@ -403,8 +483,8 @@ class AboutMe extends StatelessWidget {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: CircleAvatar(
-                          backgroundImage: NetworkImage('${urlList[index]}'),
-                          radius: 50,
+                          backgroundImage: NetworkImage('${image[index]}'),
+                          radius: 100,
                         ),
                       );
                     },
